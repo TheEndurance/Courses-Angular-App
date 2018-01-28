@@ -4,11 +4,11 @@ import {Component} from '@angular/core';
 @Component({
     selector: 'courses', // <courses>
     template: `
-        <input (keyup.enter)="onKeyUp()"/>
+        <input #templateVariable (keyup.enter)="onKeyUp(templateVariable.value)"/>
     `
 })
 export class CoursesComponent {
-    onKeyUp(){
-        console.log("Enter was pressed");
+    onKeyUp(valueFromInput){
+        console.log(valueFromInput);
     }
 }

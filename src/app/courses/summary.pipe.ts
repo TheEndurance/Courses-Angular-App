@@ -4,11 +4,12 @@ import { Pipe, PipeTransform } from "@angular/core";
     name:'summary'
 })
 export class SummaryPipe implements PipeTransform {
-    transform(value: string, ...args: any[]) {
+    transform(value: string, limit?: number) {
         if (!value)
             return null;
         
-        return value.substr(0,35) + '....';
+        let actualLimit = limit ? limit : 35;
+        return value.substr(0,actualLimit) + '....';
     }
 
 }
